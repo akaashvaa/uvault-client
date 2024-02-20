@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  width: 350px;
+  height: 600px;
+  line-height: 1.5;
+  font-weight: 400;
+  /* overflow-x: hidden; */
+
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+.app-sidebar-resizer:hover,
+.app-sidebar-resizer:active {
+  width: 6px;
+}
