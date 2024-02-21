@@ -11,6 +11,7 @@ const TodoList = () => {
       tasks: state.tasks,
     }
   })
+  // console.log(tasks)
   return (
     <>
       {tasks.length !== 0 ? (

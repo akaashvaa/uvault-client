@@ -14,6 +14,7 @@ const TodoCard = ({ note }) => {
 
   const [open, setOpen] = useState(false)
   const [copy, setCopy] = useState(false)
+  const [loading, setLoading] = useState(false)
 
   const handleDeleteTask = async (note) => {
     // console.log(
@@ -22,17 +23,19 @@ const TodoCard = ({ note }) => {
     // )
 
     try {
+      setLoading(true)
       await axios.delete(
         `${process.env.REACT_APP_BASE_URL}/api/v1/delete/${note.postId}`
       )
-
       // const data = res.data
       // console.log('deleted response ', data)
-
       deleteTask(note)
       setOpen(false)
     } catch (error) {
+      alert('something went wrong')
       console.log('the error from frontend /api/data-post is: ', error)
+    } finally {
+      setLoading(false)
     }
   }
 
@@ -85,6 +88,7 @@ const TodoCard = ({ note }) => {
             />
           </button>
           <button
+            disabled={loading}
             onClick={() => handleDeleteTask(note)}
             className="rounded-md  hover:bg-hover py-3 px-5 border-[1px] border-secondary   "
           >

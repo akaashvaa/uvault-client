@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useUser } from '@clerk/clerk-react'
 import { useStore } from '../store'
 import TodoList from './TodoList'
@@ -25,12 +26,6 @@ export default function Main() {
       }
     }
   )
-
-  const handleCreateNewNote = () => {
-    //console.log('Craete new note')
-    updateTaskFlag(!createNewTaskFlag)
-  }
-
   // call the backend api to store the user id as soon as the user logs in
   const getAllItems = async () => {
     try {
@@ -44,6 +39,10 @@ export default function Main() {
     } catch (error) {
       console.error('error', error)
     }
+  }
+  const handleCreateNewNote = () => {
+    //console.log('Craete new note')
+    updateTaskFlag(!createNewTaskFlag)
   }
 
   useEffect(() => {

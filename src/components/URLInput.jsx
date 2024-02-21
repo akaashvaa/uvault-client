@@ -8,17 +8,14 @@ import axios from 'axios'
 const URLInput = () => {
   const { isSignedIn, user } = useUser()
   const userId = user.id
+  const [isSubmitted, setIsSubmitted] = useState(false)
 
-  // eslint-disable-next-line no-unused-vars
-  const { createNewTaskFlag, updateTaskFlag, createNewTask } = useStore(
-    (state) => {
-      return {
-        createNewTaskFlag: state.createNewTaskFlag,
-        updateTaskFlag: state.updateTaskFlag,
-        createNewTask: state.createNewTask,
-      }
+  const { updateTaskFlag, createNewTask } = useStore((state) => {
+    return {
+      updateTaskFlag: state.updateTaskFlag,
+      createNewTask: state.createNewTask,
     }
-  )
+  })
 
   const [values, setValues] = useState({
     title: '',
@@ -28,10 +25,12 @@ const URLInput = () => {
   const onChange = (e) => {
     const { name, value } = e.target
 
+    e.target.setCustomValidity('')
     setValues({
       ...values,
       [name]: value,
     })
+    // console.log(name, value)
   }
 
   const discardChanges = () => {
@@ -44,7 +43,13 @@ const URLInput = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+
+    if (isSubmitted) return
+
+    setIsSubmitted(true)
+
     const { title, url } = values
+    // console.log('url', url)
 
     if (validator.isURL(url)) {
       // URL is in the correct format
@@ -63,7 +68,7 @@ const URLInput = () => {
         updateTaskFlag(false)
         createNewTask(post)
       } catch (error) {
-        console.log('the error from frontend /api/data-post is: ', error)
+        console.error('the error from frontend /api/data-post is: ', error)
       }
     } else {
       // URL is not in the correct format
@@ -71,6 +76,7 @@ const URLInput = () => {
       urlInput.setCustomValidity('Please enter a valid URL.')
       urlInput.reportValidity()
     }
+    setIsSubmitted(false)
   }
 
   if (!isSignedIn) return SignIn()

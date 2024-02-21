@@ -1,8 +1,17 @@
 import { create } from 'zustand'
-import { persist } from 'zustand/middleware'
+import { createJSONStorage, persist } from 'zustand/middleware'
 import { enc, AES } from 'crypto-js'
 
-const ENCRYTED_KEY = process.env.REACT_APP_ENCRYPTION_KEY
+const encrypt = (data) => {
+  const secretKey = 'your-secret-key'
+  return AES.encrypt(JSON.stringify(data), secretKey).toString()
+}
+
+const decrypt = (encryptedData) => {
+  const secretKey = 'your-secret-key'
+  const bytes = AES.decrypt(encryptedData, secretKey)
+  return JSON.parse(bytes.toString(enc.Utf8))
+}
 
 export const useStore = create(
   persist(
@@ -27,24 +36,22 @@ export const useStore = create(
       setTasks: (tasks) => set({ tasks: tasks }),
 
       clearStorage: () => {
-        sessionStorage.clear()
+        sessionStorage.removeItem('uvault')
       },
     }),
     {
       name: 'uvault',
-      getStorage: (data) => {
-        // Decrypting data when reading from storage
-        const decryptedData = AES.decrypt(data, ENCRYTED_KEY).toString(enc.Utf8)
-        return JSON.parse(decryptedData)
-      },
-      onSet: (data) => {
-        // Encryping data before storing it
-        const encryptedData = AES.encrypt(
-          JSON.stringify(data),
-          ENCRYTED_KEY
-        ).toString()
-        sessionStorage.setItem('uvault', encryptedData)
-      },
+      storage: createJSONStorage(() => ({
+        getItem: (key) => {
+          const encryptedData = sessionStorage.getItem(key)
+          return encryptedData ? decrypt(encryptedData) : null
+        },
+        setItem: (key, data) => {
+          const encryptedData = encrypt(data)
+          sessionStorage.setItem(key, encryptedData)
+        },
+        removeItem: (key) => sessionStorage.removeItem(key),
+      })),
     }
   )
 )
