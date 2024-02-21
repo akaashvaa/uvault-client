@@ -1,26 +1,23 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
-  "icons": [
-    {
-      "src": "favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
-    },
-    {
-      "src": "logo192.png",
-      "type": "image/png",
-      "sizes": "192x192"
-    },
-    {
-      "src": "logo512.png",
-      "type": "image/png",
-      "sizes": "512x512"
-    }
-  ],
-  "start_url": ".",
-  "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "manifest_version": 3,
+  "name": "uvault",
+  "description": "save your important blogs here.",
+  "version": "1.0",
+  "icons": {
+    "64": "icons-64.png",
+    "128": "icons-128.png"
+  },
+  "action": {
+    "default_popup": "index.html"
+  },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self';",
+    "sandbox": "sandbox allow-scripts allow-forms allow-popups allow-modals; script-src 'self' 'unsafe-inline' 'unsafe-eval'; child-src 'self';",
+    "script_src": [
+      " https://excited-trout-38.clerk.accounts.dev/npm/@clerk/clerk-js@4/dist/clerk.browser.js"
+    ]
+  },
+  "host_permissions": ["https://www.developer.chrome.com/*"],
+  "optional_host_permissions": ["https://*/*", "http://*/*"],
+  "permissions": ["storage"]
 }
-
