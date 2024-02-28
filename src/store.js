@@ -2,13 +2,13 @@ import { create } from 'zustand'
 import { createJSONStorage, persist } from 'zustand/middleware'
 import { enc, AES } from 'crypto-js'
 
+const secretKey = process.env.REACT_APP_ENCRYPTION_KEY
+
 const encrypt = (data) => {
-  const secretKey = 'your-secret-key'
   return AES.encrypt(JSON.stringify(data), secretKey).toString()
 }
 
 const decrypt = (encryptedData) => {
-  const secretKey = 'your-secret-key'
   const bytes = AES.decrypt(encryptedData, secretKey)
   return JSON.parse(bytes.toString(enc.Utf8))
 }
@@ -36,21 +36,21 @@ export const useStore = create(
       setTasks: (tasks) => set({ tasks: tasks }),
 
       clearStorage: () => {
-        sessionStorage.removeItem('uvault')
+        localStorage.removeItem('uvault')
       },
     }),
     {
       name: 'uvault',
       storage: createJSONStorage(() => ({
         getItem: (key) => {
-          const encryptedData = sessionStorage.getItem(key)
+          const encryptedData = localStorage.getItem(key)
           return encryptedData ? decrypt(encryptedData) : null
         },
         setItem: (key, data) => {
           const encryptedData = encrypt(data)
-          sessionStorage.setItem(key, encryptedData)
+          localStorage.setItem(key, encryptedData)
         },
-        removeItem: (key) => sessionStorage.removeItem(key),
+        removeItem: (key) => localStorage.removeItem(key),
       })),
     }
   )

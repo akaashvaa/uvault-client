@@ -1,15 +1,18 @@
 {
-  "manifest_version": 3,
+  "manifest_version": 2,
   "name": "uvault",
-  "description": "save your important blogs here.",
-  "version": "1.0",
-  "action": {
-    "default_popup": "./public/index.html"
-  },
-  "content_security_policy": {
-    "extension_pages": "default-src 'self'"
-  },
-  "host_permissions": ["https://www.developer.chrome.com/*"],
-  "optional_host_permissions": ["https://*/*", "http://*/*"],
-  "permissions": ["storage"]
+  "version": "1.0.0",
+  "description": "A brief description of your extension",
+  "content_scripts": [
+    {
+      "matches": [
+        "https://*.example.com/*",
+        "https://excited-trout-38.clerk.accounts.dev/*"
+      ],
+      "js": [
+        "https://excited-trout-38.clerk.accounts.dev/npm/@clerk/clerk-js@4/dist/clerk.browser.js"
+      ]
+    }
+  ],
+  "permissions": ["activeTab", "https://excited-trout-38.clerk.accounts.dev/"]
 }
