@@ -61,7 +61,7 @@ const TodoCard = ({ note }) => {
 
   return (
     <div
-      className={`w-full flex justify-center items-center gap-x-10  rounded-md px-2  `}
+      className={`w-full overflow-x-hidden flex justify-center items-center gap-x-10  rounded-md px-2  `}
     >
       {!open ? (
         <a

@@ -15,13 +15,13 @@ const TodoList = () => {
   return (
     <>
       {tasks.length !== 0 ? (
-        <div className="flex flex-col gap-3 w-full border-t-2 pt-5 border-secondary">
+        <div className="flex  flex-col gap-3 w-full border-t-2 pt-5 border-secondary">
           {tasks.map((note) => (
             <TodoCard note={note} key={note._id} />
           ))}
         </div>
       ) : (
-        <div className=" text-sm flex gap-2 justify-center items-center text-center  text-[#b1b1b1] py-5">
+        <div className=" text-sm flex gap-2  justify-center items-center text-center  text-[#b1b1b1] py-5">
           <h1>Hello {CurrentUser.username || CurrentUser.firstName}</h1>
           <img
             src={CurrentUser.imageUrl}
