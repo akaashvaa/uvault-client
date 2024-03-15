@@ -1,15 +1,25 @@
 {
-  "manifest_version": 2,
-  "name": "uvault",
-  "version": "1.0.0",
-  "description": "A brief description of your extension",
-  "content_scripts": [
+  "short_name": "uvault",
+  "name": "uvault app",
+  "icons": [
     {
-      "matches": ["https://*"],
-      "js": [
-        "https://excited-trout-38.clerk.accounts.dev/npm/@clerk/clerk-js@4/dist/clerk.browser.js"
-      ]
+      "src": "favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "logo128.png",
+      "type": "image/png",
+      "sizes": "128x128"
+    },
+    {
+      "src": "logo64.png",
+      "type": "image/png",
+      "sizes": "64x64"
     }
   ],
-  "permissions": ["activeTab", "https://excited-trout-38.clerk.accounts.dev/"]
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
 }
