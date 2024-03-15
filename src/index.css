@@ -19,9 +19,15 @@ body {
 }
 .header {
   font-family: 'Island Moments', cursive;
-  font-size: 3em;
-  font-stretch: ultra-expanded;
+  padding: 0;
+  font-size: 4rem;
+  text-align: center;
   letter-spacing: 0.8rem;
+}
+.header + p {
+  font-family: 'Island Moments', cursive;
+  font-size: 2rem;
+  text-align: center;
 }
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',

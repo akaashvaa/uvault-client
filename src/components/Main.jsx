@@ -50,13 +50,16 @@ export default function Main() {
   }, [])
 
   return (
-    <div className="flex flex-col gap-y-10 justify-center shadow-lg items-center w-screen h-screen">
-      <h1 className="header ">URL Storage</h1>
+    <div className="flex flex-col gap-y-6 justify-center shadow-lg items-center w-screen h-screen">
+      <div className="flex flex-col">
+        <h1 className="header ">UVAULT</h1>
+        <p className="-translate-y-5"> store your favourite blog</p>
+      </div>
       <div className="bg-primary  p-4 w-[50%] h-[70%] rounded-md relative overflow-y-auto overflow-x-hidden ">
-        <div className="todo-list-item py-5 flex flex-col gap-5 bg-primary  pt-5 rounded-md justify-start items-center overflow-y-auto ">
+        <div className="py-5 flex flex-col gap-5 bg-primary  pt-5 rounded-md justify-start items-center overflow-y-auto ">
           <button
             onClick={handleCreateNewNote}
-            className=" border-[3px] rounded-md border-secondary flex px-3 justify-center items-center  "
+            className=" border-[3px] w-1/2  rounded-md border-secondary flex px-3 justify-center items-center  "
           >
             <span className=" text-3xl pr-3  pb-1 "> &#43; </span> <b>URL </b>
           </button>
