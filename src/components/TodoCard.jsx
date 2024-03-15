@@ -61,7 +61,7 @@ const TodoCard = ({ note }) => {
 
   return (
     <div
-      className={`w-full flex justify-center items-center gap-2  rounded-md px-2  `}
+      className={`w-full flex justify-center items-center gap-x-10  rounded-md px-2  `}
     >
       {!open ? (
         <a
@@ -99,7 +99,7 @@ const TodoCard = ({ note }) => {
 
       <button
         onClick={() => ShowDetails(note)}
-        className="rounded-md flex justify-center items-center bg-primary hover:bg-hover  px-3 py-1   "
+        className="rounded-md flex justify-center items-center bg-primary hover:bg-hover  px-6 py-2   "
       >
         <span className="flex items-center "> &#9776;</span>
       </button>

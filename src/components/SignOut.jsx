@@ -15,7 +15,7 @@ export default function SignOut() {
   return (
     <div
       onClick={handlelogout}
-      className="absolute right-3 rounded-full top-7 w-6 cursor-pointer"
+      className="absolute right-8 rounded-full top-10 w-7 cursor-pointer"
     >
       <SignOutButton>
         <img src={logout} alt="logout" />

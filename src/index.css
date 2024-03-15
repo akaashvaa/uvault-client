@@ -1,22 +1,28 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Island+Moments&display=swap');
 
 html,
 body {
-  width: 350px;
-  height: 600px;
+  width: 100vw;
+  height: 100vh;
   line-height: 1.5;
+  margin: auto;
   font-weight: 400;
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
-  /* overflow-x: hidden; */
+  overflow: hidden;
   scroll-behavior: smooth;
-  overflow-y: auto;
   scrollbar-width: thin;
   scrollbar-color: #3e3e3e3f transparent;
 }
-
+.header {
+  font-family: 'Island Moments', cursive;
+  font-size: 3em;
+  font-stretch: ultra-expanded;
+  letter-spacing: 0.8rem;
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
