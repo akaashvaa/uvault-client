@@ -87,7 +87,7 @@ const URLInput = () => {
       ) : (
         <form
           onSubmit={handleSubmit}
-          className="flex w-full  items-center justify-center py-5 "
+          className="flex w-full items-center justify-center py-5 "
         >
           <div className="flex  w-3/4 flex-col gap-2 ml-5">
             <input

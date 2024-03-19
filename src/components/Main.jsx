@@ -57,12 +57,14 @@ export default function Main() {
       </div>
       <div className="bg-primary  md:p-4 p-1 md:w-[55%] xs:w-[70%]  w-[90%] md:h-[70%] rounded-md relative overflow-y-auto overflow-x-hidden ">
         <div className="py-5 flex flex-col md:gap-5 gap-2 bg-primary  pt-5 rounded-md justify-start items-center overflow-y-auto overflow-x-hidden ">
-          <button
-            onClick={handleCreateNewNote}
-            className=" border-[3px] w-1/2 rounded-md border-secondary flex px-3 justify-center items-center  "
-          >
-            <span className=" text-3xl pr-3  pb-1 "> &#43; </span> <b>URL </b>
-          </button>
+          <div className="flex p-[2px] rounded-md w-1/2 gborder  justify-center items-center">
+            <button
+              onClick={handleCreateNewNote}
+              className="  drop-shadow-xl py-1 w-full rounded-md bg-primary flex px-3 justify-center items-center  "
+            >
+              <span className=" text-3xl pr-3  pb-1 "> &#43; </span> <b>URL </b>
+            </button>
+          </div>
 
           {createNewTaskFlag && <URLInput />}
           {!logout && <TodoList />}
