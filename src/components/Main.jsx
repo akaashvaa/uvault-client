@@ -47,6 +47,7 @@ export default function Main() {
 
   useEffect(() => {
     getAllItems()
+    localStorage.setItem('userId', userId)
   }, [])
 
   return (
