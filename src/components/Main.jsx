@@ -56,7 +56,7 @@ export default function Main() {
         <h1 className="header ">UVAULT</h1>
         <p className="-translate-y-5"> store your favourite blog</p>
       </div>
-      <div className="bg-primary  md:p-4 p-1 md:w-[55%] xs:w-[70%]  w-[90%] md:h-[70%] rounded-md relative overflow-y-auto overflow-x-hidden ">
+      <div className="bg-primary border border-primary  md:p-4 p-1 md:w-[55%] xs:w-[70%]  w-[90%] md:h-[70%] rounded-md relative overflow-y-auto overflow-x-hidden ">
         <div className="py-5 flex flex-col md:gap-5 gap-2 bg-primary  pt-5 rounded-md justify-start items-center overflow-y-auto overflow-x-hidden ">
           <div className="flex p-[2px] rounded-md w-1/2 gborder  justify-center items-center">
             <button
