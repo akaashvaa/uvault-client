@@ -51,7 +51,7 @@ export default function Main() {
   }, [])
 
   return (
-    <div className="flex  flex-col gap-y-6 justify-center shadow-lg items-center w-screen h-screen my-2">
+    <div className="flex  flex-col gap-y-6 justify-center shadow-lg items-center w-screen h-screen py-2">
       <div className="flex flex-col">
         <h1 className="header ">UVAULT</h1>
         <p className="-translate-y-5"> store your favourite blog</p>
