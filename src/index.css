@@ -25,7 +25,10 @@ body {
   letter-spacing: 0.8rem;
 }
 .header + p {
-  font-size: 1.2rem;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+  margin-top: 20px;
+  font-size: 0.8rem;
   text-align: center;
 }
 code {
