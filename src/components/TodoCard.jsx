@@ -70,8 +70,8 @@ const TodoCard = ({ note }) => {
           target="_blank"
           className="w-full  h-auto py-3 text-center drop-shadow-md bg-secondary rounded-md  px-2  "
         >
-          {note.title.length > 10
-            ? note.title.slice(0, 10) + '...'
+          {note.title.length > 30
+            ? note.title.slice(0, 30) + '...'
             : note.title}
         </a>
       ) : (
