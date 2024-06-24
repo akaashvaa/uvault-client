@@ -68,9 +68,11 @@ const TodoCard = ({ note }) => {
           href={note.url}
           rel="noreferrer"
           target="_blank"
-          className="w-full  h-auto py-3 text-center  bg-secondary rounded-md  px-2  "
+          className="w-full  h-auto py-3 text-center drop-shadow-md bg-secondary rounded-md  px-2  "
         >
-          {note.title}
+          {note.title.length > 10
+            ? note.title.slice(0, 10) + '...'
+            : note.title}
         </a>
       ) : (
         <div className="w-full text-[0.8em] font-serif flex justify-center gap-5 items-center  rounded-md px-1">

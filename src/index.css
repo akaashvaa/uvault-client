@@ -20,13 +20,12 @@ body {
 .header {
   font-family: 'Island Moments', cursive;
   padding: 0;
-  font-size: 4rem;
+  font-size: 3rem;
   text-align: center;
   letter-spacing: 0.8rem;
 }
 .header + p {
-  font-family: 'Island Moments', cursive;
-  font-size: 2rem;
+  font-size: 1.2rem;
   text-align: center;
 }
 code {
