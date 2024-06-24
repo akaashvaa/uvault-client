@@ -18,18 +18,18 @@ body {
   scrollbar-color: #3e3e3e3f transparent;
 }
 .header {
-  font-family: 'Island Moments', cursive;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
   padding: 0;
   font-size: 3rem;
   text-align: center;
   letter-spacing: 0.8rem;
 }
 .header + p {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
   margin-top: 20px;
   font-size: 0.8rem;
   text-align: center;
+  letter-spacing: 1.2rem;
 }
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
