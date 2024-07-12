@@ -56,12 +56,12 @@ export default function Main() {
         <h1 className="header ">UVAULT</h1>
         <p className="-translate-y-5"> store your favourite blog</p>
       </div>
-      <div className=" border-2 border-primary  md:p-4 p-1 md:w-[55%] xs:w-[70%]  w-[90%] md:h-[70%] rounded-md relative overflow-y-auto overflow-x-hidden drop-shadow-md pb-1 bg-gradient-to-t from-[#3333331a] to-[#4d4d4d23] ">
-        <div className="py-5 flex flex-col md:gap-5 gap-2  backdrop-blur-md  pt-5 rounded-md justify-start items-center overflow-y-auto overflow-x-hidden mb-2">
+      <div className=" border-2 border-primary p-1 md:w-[55%] xs:w-[70%]  w-[90%] md:h-[70%] rounded-md relative overflow-y-auto overflow-x-hidden drop-shadow-md pb-1 bg-gradient-to-t from-[#3333331a] to-[#4d4d4d23] ">
+        <div className=" p-5 flex flex-col md:gap-5 gap-2  backdrop-blur-md rounded-md justify-start items-center overflow-y-auto overflow-x-hidden mb-2">
           <div className="flex p-[2px] rounded-md w-1/2 gborder  justify-center items-center">
             <button
               onClick={handleCreateNewNote}
-              className="  drop-shadow-xl py-1 w-full rounded-md bg-primary flex px-3 justify-center items-center  "
+              className="  drop-shadow-xl py-1 w-full rounded-md  flex px-3 justify-center items-center  "
             >
               <span className=" text-3xl pr-3  pb-1 "> &#43; </span> <b>URL </b>
             </button>
