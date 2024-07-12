@@ -68,7 +68,7 @@ const TodoCard = ({ note }) => {
           href={note.url}
           rel="noreferrer"
           target="_blank"
-          className="w-full  h-auto py-3 text-center drop-shadow-md bg-secondary rounded-md  px-2  "
+          className="w-full  h-auto py-3 text-center drop-shadow-md rounded-md  px-2 bg-gradient-to-t from-[#3333331a] to-[#4d4d4d23] "
         >
           {note.title.length > 50
             ? note.title.slice(0, 50) + '...'
