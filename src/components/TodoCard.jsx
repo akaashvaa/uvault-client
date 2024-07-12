@@ -61,14 +61,14 @@ const TodoCard = ({ note }) => {
 
   return (
     <div
-      className={`w-full overflow-x-hidden flex justify-center items-center gap-x-10  rounded-md px-2  `}
+      className={`w-full text-[#7A7A7A] overflow-x-hidden flex justify-center items-center gap-x-10  rounded-md px-2  `}
     >
       {!open ? (
         <a
           href={note.url}
           rel="noreferrer"
           target="_blank"
-          className="w-full  h-auto py-3 text-center drop-shadow-md rounded-md  px-2 bg-gradient-to-t from-[#3333331a] to-[#4d4d4d23] "
+          className="w-full  bg-primary h-auto py-3 text-center drop-shadow-md rounded-md  px-2 "
         >
           {note.title.length > 50
             ? note.title.slice(0, 50) + '...'
