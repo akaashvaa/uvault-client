@@ -72,6 +72,14 @@ export default function Main() {
         </div>
         <SignOut />
       </div>
+      <a
+        className="text-center w-full text-sm"
+        href="https://github.com/akaashvaa/uvault-extension"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        add this to your extension
+      </a>
     </div>
   )
 }
