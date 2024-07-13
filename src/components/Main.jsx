@@ -73,7 +73,7 @@ export default function Main() {
         <SignOut />
       </div>
       <a
-        className="text-center w-full text-sm"
+        className="text-center w-full text-[10px] underline"
         href="https://github.com/akaashvaa/uvault-extension"
         target="_blank"
         rel="noopener noreferrer"
