@@ -17,15 +17,12 @@ export const useStore = create(
   persist(
     (set, get) => ({
       tasks: [],
-      logout: false,
       createNewTaskFlag: false,
 
       createNewTask: (task) =>
         set((state) => ({ tasks: [task, ...state.tasks] })),
 
       updateTaskFlag: (flag) => set({ createNewTaskFlag: flag }),
-
-      updateLogout: (flag) => set({ logout: flag }),
 
       deleteTask: (task) =>
         set((state) => {

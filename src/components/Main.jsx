@@ -4,31 +4,30 @@ import { useStore } from '../store'
 import TodoList from './TodoList'
 import URLInput from './URLInput'
 import SignOut from './SignOut'
-import { useEffect } from 'react'
+import Spinner from './shared/Spinner'
+import { useEffect, useState } from 'react'
 import axios from 'axios'
 
 export default function Main() {
   const { user } = useUser()
-
+  const [loading, setLoading] = useState(false)
   const userId = user.id
 
   // const currentUser = user.externalAccounts[0]
   // console.log('userId', userId, isSignedIn)
 
-  const { setTasks, createNewTaskFlag, updateTaskFlag, logout } = useStore(
-    (state) => {
-      return {
-        tasks: state.tasks,
-        logout: state.logout,
-        setTasks: state.setTasks,
-        createNewTaskFlag: state.createNewTaskFlag,
-        updateTaskFlag: state.updateTaskFlag,
-      }
+  const { setTasks, createNewTaskFlag, updateTaskFlag } = useStore((state) => {
+    return {
+      tasks: state.tasks,
+      setTasks: state.setTasks,
+      createNewTaskFlag: state.createNewTaskFlag,
+      updateTaskFlag: state.updateTaskFlag,
     }
-  )
+  })
   // call the backend api to store the user id as soon as the user logs in
   const getAllItems = async () => {
     try {
+      setLoading(true)
       const res = await axios.get(
         `${process.env.REACT_APP_BASE_URL}/api/v1/getAll/${userId}`
       )
@@ -38,6 +37,8 @@ export default function Main() {
       // console.log('fetched data from ../getAll', userData)
     } catch (error) {
       console.error('error', error)
+    } finally {
+      setLoading(false)
     }
   }
   const handleCreateNewNote = () => {
@@ -68,7 +69,7 @@ export default function Main() {
           </div>
 
           {createNewTaskFlag && <URLInput />}
-          {!logout && <TodoList />}
+          {loading ? <Spinner /> : <TodoList />}
         </div>
         <SignOut />
       </div>
