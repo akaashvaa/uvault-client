@@ -4,7 +4,7 @@ import copyIcon from '../assests/copy.svg'
 import copiedIcon from '../assests/copied.svg'
 import { useStore } from '../store'
 import axios from 'axios'
-
+import Spinner from './shared/Spinner'
 const TodoCard = ({ note }) => {
   const { deleteTask } = useStore((state) => {
     return {
@@ -94,7 +94,11 @@ const TodoCard = ({ note }) => {
             onClick={() => handleDeleteTask(note)}
             className="rounded-md  hover:bg-hover py-3 px-5 border-[1px] border-secondary   "
           >
-            <img src={deleteIcon} alt="delete" className="w-5" />
+            {loading ? (
+              <Spinner />
+            ) : (
+              <img src={deleteIcon} alt="delete" className="w-5" />
+            )}
           </button>
         </div>
       )}
