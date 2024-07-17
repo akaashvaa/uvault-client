@@ -69,7 +69,13 @@ export default function Main() {
           </div>
 
           {createNewTaskFlag && <URLInput />}
-          {loading ? <Spinner /> : <TodoList />}
+          {loading ? (
+            <div className="h-full w-full flex justify-center items-center">
+              <Spinner />
+            </div>
+          ) : (
+            <TodoList />
+          )}
         </div>
         <SignOut />
       </div>
