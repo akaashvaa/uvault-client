@@ -2,7 +2,7 @@ import React from 'react'
 
 function Spinner() {
   return (
-    <div class="grid min-h-[140px] w-full place-items-center overflow-x-scroll rounded-lg p-6 lg:overflow-visible">
+    <div class=" flex flex-col h-full justify-center items-center w-full border-t-2 pt-5 border-secondary  place-items-center overflow-x-scroll rounded-lg p-6 lg:overflow-visible">
       <svg
         class="text-gray-300 animate-spin"
         viewBox="0 0 64 64"
