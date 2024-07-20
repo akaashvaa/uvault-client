@@ -2,7 +2,7 @@ import { create } from 'zustand'
 import { createJSONStorage, persist } from 'zustand/middleware'
 import { enc, AES } from 'crypto-js'
 
-const secretKey = process.env.REACT_APP_ENCRYPTION_KEY
+const secretKey = process.env.REACT_APP_ENCRYPTION_KEY || ''
 
 const encrypt = (data) => {
   return AES.encrypt(JSON.stringify(data), secretKey).toString()

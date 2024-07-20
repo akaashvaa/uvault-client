@@ -5,7 +5,7 @@ import {
   SignedOut,
   RedirectToSignIn,
 } from '@clerk/clerk-react'
-
+import { AnimatePresence } from 'framer-motion'
 import Main from './components/Main'
 
 if (!process.env.REACT_APP_CLERK_PUBLISHABLE_KEY) {
@@ -18,7 +18,9 @@ function App() {
   return (
     <ClerkProvider publishableKey={clerkPubKey}>
       <SignedIn>
-        <Main />
+        <AnimatePresence initial={false}>
+          <Main />
+        </AnimatePresence>
       </SignedIn>
       <SignedOut>
         <RedirectToSignIn />

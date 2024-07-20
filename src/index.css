@@ -17,6 +17,15 @@ body {
   scrollbar-width: thin;
   scrollbar-color: #3e3e3e3f transparent;
 }
+input,
+a,
+b {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+b {
+  letter-spacing: 0.5rem;
+}
 .header {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
@@ -56,13 +65,14 @@ body::-webkit-scrollbar-track {
 
 .gborder {
   background: linear-gradient(
-    -90deg,
+    -145deg,
     #ee7652e0,
     #e73c7ec4,
     #23a5d5d4,
     #23d5abda
   );
   background-size: 400% 400%;
+  padding: 0 3px;
   animation: gradient 15s ease infinite;
 }
 
@@ -76,4 +86,47 @@ body::-webkit-scrollbar-track {
   100% {
     background-position: 0% 50%;
   }
+}
+#btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 8px;
+  background: linear-gradient(to bottom, #333333 0%, #212121ab 100%);
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid #333333;
+
+  text-shadow: 0 1px 0 0 #333333;
+  color: #7a7a7a;
+  cursor: pointer;
+  transition: all 0.5s linear;
+}
+/* this will apply when btn is clicked */
+.add {
+  box-shadow: 0 2px 0 0 #5a5a051a, 0 0 0 2px #6a6a6a1a;
+  border: 1px solid #48474768;
+}
+
+@keyframes gradientAnimation {
+  0% {
+    stop-color: #ee7652e0;
+  }
+  33% {
+    stop-color: #e73c7ec4;
+  }
+  67% {
+    stop-color: #23a5d5d4;
+  }
+  100% {
+    stop-color: #23d5abda;
+  }
+}
+
+#gradient1 stop:nth-child(1),
+#gradient1 stop:nth-child(2),
+#gradient1 stop:nth-child(3),
+#gradient1 stop:nth-child(4) {
+  animation: gradientAnimation 14s ease infinite;
 }

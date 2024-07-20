@@ -4,6 +4,7 @@ import { useStore } from '../store'
 import { v4 as uuid } from 'uuid'
 import validator from 'validator'
 import axios from 'axios'
+import Spinner from './shared/Spinner'
 
 const URLInput = () => {
   const { isSignedIn, user } = useUser()
@@ -83,11 +84,11 @@ const URLInput = () => {
   return (
     <>
       {isSubmitted ? (
-        <p>loading...</p>
+        <Spinner />
       ) : (
         <form
           onSubmit={handleSubmit}
-          className="flex w-full items-center justify-center py-5 "
+          className=" flex w-full items-center justify-center py-5 "
         >
           <div className="flex  w-3/4 flex-col gap-2 ml-5">
             <input
