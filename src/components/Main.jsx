@@ -65,21 +65,23 @@ export default function Main() {
       <div className=" p-1 md:w-[55%] xs:w-[70%]  w-[90%] md:h-[70%] rounded-md  overflow-hidden drop-shadow-md pb-1 bg-gradient-to-t from-[#3333331a] to-[#4d4d4d23] ">
         <div className="relative p-5 h-full flex flex-col md:gap-5 gap-2  backdrop-blur-md rounded-md justify-start items-center  overflow-x-hidden mb-2">
           {toggleSearch ? (
-            <motion.form
-              onSubmit={handleSubmit}
+            <motion.div
+              initial={{ rotateX: 180 }}
               animate={{ rotateX: 0 }}
               transition={{ duration: 0.5 }}
               className="flex h-[60px] p-[2px] shadow-sm drop-shadow-sm rounded-md w-1/2 gborder  justify-center items-center ml-3"
             >
-              <input
-                type="text"
-                name="searchQuery"
-                onChange={(e) => setSearchQuery(e.target.value)}
-                value={searchQuery}
-                placeholder="search here"
-                className=" text-center  backdrop-blur-md w-full h-[60px] bg-primary rounded-md  flex px-3 justify-center items-center outline-none"
-              />
-            </motion.form>
+              <form onSubmit={handleSubmit} className="w-full">
+                <input
+                  type="text"
+                  name="searchQuery"
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  value={searchQuery}
+                  placeholder="search here"
+                  className=" text-center  backdrop-blur-md w-full h-[60px] bg-primary rounded-md  flex px-3 justify-center items-center outline-none"
+                />
+              </form>
+            </motion.div>
           ) : (
             <motion.div
               initial={{ rotateX: 0 }}
