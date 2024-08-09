@@ -2,6 +2,9 @@
 
 - **https://uvault-phi.vercel.app/**
 
+## uvault-extension
+    [uvault-extension](https://github.com/akaashvaa/uvault-extension)
+
 Welcome to uvault! uvault is a simple web application that allows users to store their favorite blog URLs along with their titles. It's a convenient way to keep track of interesting articles, blog posts, or any other online content you come across and want to revisit later.
 
 ## Features
@@ -40,10 +43,6 @@ To get started with uvault, follow these steps:
 4. Configure Clerk for authentication and integrate it into your application.
 5. Start the server and launch the application in your web browser.
 6. Begin adding your favorite blog URLs and titles!
-
-## Contributing
-
-If you'd like to contribute to uvault, feel free to submit a pull request. Contributions are welcome and appreciated!
 
 ## License
 
