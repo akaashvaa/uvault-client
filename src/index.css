@@ -1,7 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url('https://fonts.googleapis.com/css2?family=Island+Moments&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 html,
 body {
@@ -15,21 +16,15 @@ body {
   overflow: hidden;
   scroll-behavior: smooth;
   scrollbar-width: thin;
+  font-family: 'Courier Prime' ,'Courier New', monospace;
   scrollbar-color: #3e3e3e3f transparent;
 }
-input,
-a,
-b {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
+
 b {
   letter-spacing: 0.5rem;
 }
 
 .header {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
   padding: 0;
   font-size: 3rem;
   text-align: center;
@@ -41,10 +36,6 @@ b {
   font-size: 0.8rem;
   text-align: center;
   letter-spacing: 0.85rem;
-}
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
 }
 .app-sidebar-resizer:hover,
 .app-sidebar-resizer:active {
