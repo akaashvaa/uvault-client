@@ -5,7 +5,7 @@ import TodoList from './TodoList'
 import URLInput from './URLInput'
 import SignOut from './SignOut'
 import Spinner from './shared/Spinner'
-import { Suspense, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import ToggleSearch from './ToggleSearch'
 import { motion } from 'framer-motion'
 import {useAxiosInstance} from "../api/axios.js"
@@ -16,6 +16,7 @@ import debounce from 'debounce'
 export default function Main() {
   const [toggleSearch, setToggleSearch] = useState(true)
   const [error , setError] = useState(false)
+  const [loading, setLoading] = useState(false)
   const { userId }= useAuth()
 
   const api = useAxiosInstance()
@@ -36,6 +37,7 @@ export default function Main() {
   // call the backend api to store the user id as soon as the user logs in
   const getAllItems = async () => {
     try {
+     setLoading(true)
       const res = await api.get(endpoints.getAll(userId))
       const { userData } = res.data
       // console.log('data', userData)
@@ -45,6 +47,8 @@ export default function Main() {
     } catch (error) {
       console.error('error', error)
       setError(true)
+    } finally {
+      setLoading(false)
     }
   }
   const handleCreateNewNote = () => {
@@ -58,7 +62,7 @@ export default function Main() {
       (item) => item.title.includes(query) || item.url.includes(query)
     )
     setFilteredTask(filteredTask)
-    //console.log(filteredData)
+    //console.log(filteredTask)
   }, 300) 
 
   useEffect(() => {
@@ -109,14 +113,12 @@ export default function Main() {
           )}
 
           {createNewTaskFlag && <URLInput />}
-          {
-            error ? (<h1 className=" text-red-700 ">Error while fetching data</h1>) :
-            (
-          
-        <Suspense fallback={<Spinner />}>
-              <TodoList />
-          </Suspense>
-          )}
+          { 
+            loading ?
+              <Spinner /> : (
+                  error ? (<h1 className=" text-red-700 ">Error while fetching data</h1>) : ( <TodoList /> )
+              )
+          }
           <SignOut />
           <ToggleSearch
             setToggleSearch={setToggleSearch}
