@@ -3,7 +3,6 @@ import { SignIn, useUser } from '@clerk/clerk-react'
 import { useStore } from '../store'
 import { v4 as uuid } from 'uuid'
 import validator from 'validator'
-import axios from 'axios'
 import Spinner from './shared/Spinner'
 import {endpoints} from "../api/config.js" 
 import { useAxiosInstance} from "../api/axios.js"

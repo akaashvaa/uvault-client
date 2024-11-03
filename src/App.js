@@ -8,11 +8,11 @@ import {
 import { AnimatePresence } from 'framer-motion'
 import Main from './components/Main'
 
-if (!process.env.REACT_APP_CLERK_PUBLISHABLE_KEY) {
+const clerkPubKey = process.env.REACT_APP_CLERK_PUBLISHABLE_KEY
+
+if (!clerkPubKey) {
   throw new Error('Missing Publishable Key')
 }
-
-const clerkPubKey = process.env.REACT_APP_CLERK_PUBLISHABLE_KEY
 
 function App() {
   return (

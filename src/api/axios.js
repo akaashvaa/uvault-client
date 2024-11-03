@@ -9,6 +9,7 @@ export const useAxiosInstance = () => {
   api.interceptors.request.use(async (config) => {
     try {
       const token = await getToken();
+      //console.log( `Bearer ${token}`;)
       // If token exists, add it to headers, if not, proceed as public request
       if (token) {
         config.headers.Authorization = `Bearer ${token}`;
