@@ -6,17 +6,17 @@ const TodoList = () => {
   const { user } = useUser()
   const CurrentUser = user.externalAccounts[0]
 
-  const { tasks } = useStore((state) => {
+  const {  filteredTask } = useStore((state) => {
     return {
-      tasks: state.tasks,
+      filteredTask: state.filteredTask,
     }
   })
   // console.log(tasks)
   return (
     <>
-      {tasks.length !== 0 ? (
+      {filteredTask.length !== 0 ? (
         <div className="flex  flex-col gap-3 w-full border-t-2 pt-5 border-secondary">
-          {tasks.map((note) => (
+          {filteredTask.map((note) => (
             <TodoCard note={note} key={note._id} />
           ))}
         </div>

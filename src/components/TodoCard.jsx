@@ -4,16 +4,19 @@ import deleteIcon2 from '../assests/delete2.svg'
 import copyIcon from '../assests/copy.svg'
 import copiedIcon from '../assests/copied.svg'
 import { useStore } from '../store'
-import axios from 'axios'
 import Spinner from './shared/Spinner'
+import {endpoints} from "../api/config.js"
+
+import {useAxiosInstance} from "../api/axios.js"
+
 const TodoCard = ({ note }) => {
+
   const { deleteTask } = useStore((state) => {
     return {
       deleteTask: state.deleteTask,
     }
   })
-
-  const [open, setOpen] = useState(false)
+  const api = useAxiosInstance()
   const [copy, setCopy] = useState(false)
   const [loading, setLoading] = useState(false)
   const [delBtn, setDelBtn] = useState(false)
@@ -26,13 +29,10 @@ const TodoCard = ({ note }) => {
 
     try {
       setLoading(true)
-      await axios.delete(
-        `${process.env.REACT_APP_BASE_URL}/api/v1/delete/${note.postId}`
-      )
+      await api.delete(endpoints.delete(note.postId))
       // const data = res.data
       // console.log('deleted response ', data)
       deleteTask(note)
-      setOpen(false)
     } catch (error) {
       alert('something went wrong')
       console.log('the error from frontend /api/data-post is: ', error)
@@ -41,12 +41,7 @@ const TodoCard = ({ note }) => {
     }
   }
 
-  const ShowDetails = (note) => {
-    // console.log('show details clicked')
-    setOpen(!open)
-  }
-
-  const copyUrl = ({ url }) => {
+   const copyUrl = ({ url }) => {
     // console.log('copied')
     navigator.clipboard
       .writeText(url)

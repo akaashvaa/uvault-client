@@ -17,21 +17,23 @@ export const useStore = create(
   persist(
     (set, get) => ({
       tasks: [],
+      filteredTask : [],
       createNewTaskFlag: false,
 
-      createNewTask: (task) =>
+      createNewTask: (task) => 
         set((state) => ({ tasks: [task, ...state.tasks] })),
 
       updateTaskFlag: (flag) => set({ createNewTaskFlag: flag }),
 
-      deleteTask: (task) =>
+      deleteTask: (task) => 
         set((state) => {
           const newTasks = state.tasks.filter((el) => el.postId !== task.postId)
-          return { tasks: newTasks }
+           return { tasks: newTasks, filteredTask : newTasks }
+
         }),
 
       setTasks: (tasks) => set({ tasks: tasks }),
-
+      setFilteredTask : (tasks) => set({filteredTask : tasks}),
       clearStorage: () => {
         localStorage.removeItem('uvault')
       },

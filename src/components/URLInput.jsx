@@ -5,11 +5,15 @@ import { v4 as uuid } from 'uuid'
 import validator from 'validator'
 import axios from 'axios'
 import Spinner from './shared/Spinner'
+import {endpoints} from "../api/config.js" 
+import { useAxiosInstance} from "../api/axios.js"
 
 const URLInput = () => {
   const { isSignedIn, user } = useUser()
   const userId = user.id
   const [isSubmitted, setIsSubmitted] = useState(false)
+
+  const api = useAxiosInstance()
 
   const { updateTaskFlag, createNewTask } = useStore((state) => {
     return {
@@ -55,9 +59,8 @@ const URLInput = () => {
     if (validator.isURL(url)) {
       // URL is in the correct format
       try {
-        const res = await axios.post(
-          `${process.env.REACT_APP_BASE_URL}/api/v1/post`,
-          {
+        const res = await api.post( endpoints.create 
+         , {
             postId: uuid(),
             userId,
             title,

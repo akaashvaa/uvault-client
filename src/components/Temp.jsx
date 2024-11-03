@@ -3,8 +3,8 @@ export default function Temp() {
   const { user } = useUser()
   const { userId } = useAuth()
 
-  console.log('user : ', user)
-  console.log('userId : ', userId)
+  //console.log('user : ', user)
+  //console.log('userId : ', userId)
 
   return (
     <div>
