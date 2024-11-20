@@ -79,12 +79,13 @@ export default function Main() {
   }, []);
 
   return (
-    <div className="flex  flex-col gap-y-6 justify-center shadow-lg items-center w-screen h-screen">
+    <div className="flex relative backdrop-blur-md flex-col gap-y-6 justify-center shadow-lg items-center w-screen h-screen">
+      <div className="blur2" />
       <div className="flex flex-col">
         <h1 className="header ">UVAULT</h1>
         <p className="-translate-y-5"> store your favourite blog</p>
       </div>
-      <div className=" p-1 md:w-[55%] xs:w-[70%]  w-[90%] md:h-[70%] rounded-md  overflow-hidden drop-shadow-md pb-1 bg-gradient-to-t from-[#3333331a] to-[#4d4d4d23] ">
+      <div className=" p-1 md:w-[55%] xs:w-[70%]  w-[90%] md:h-[70%] rounded-md  overflow-hidden shadow-sm drop-shadow-lg pb-1 bg-gradient-to-t from-[#30303023] to-[#40404023] ">
         <div className="relative p-5 h-full flex flex-col md:gap-5 gap-2  backdrop-blur-md rounded-md justify-start items-center  overflow-x-hidden mb-2">
           {toggleSearch ? (
             <motion.div
