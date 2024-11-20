@@ -59,7 +59,7 @@ const TodoCard = ({ note }) => {
       transition={{ type : "spring", duration: 0.5, mass :2, ease: "easeInOut" }} // Transition for smooth resizing
         rel="noreferrer"
         target="_blank"
-        className={`bg-[#272727ff]  hover:bg-hover hover:text-left text-center py-3 px-4 rounded-md ${
+        className={`bg-[#272727ff]  hover:bg-hover text-left  py-3 px-4 rounded-md ${
           hover ? 'w-[85%]' : 'w-full' // Adjust width when hovering
         } transition-all duration-300 ease-in-out`}
       >
